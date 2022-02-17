@@ -38,8 +38,7 @@ $statement->closeCursor();
                         <?php echo $result['Description']; ?>
                     </td>
                     <td><form action = "delete_task.php" method = "POST">
-                        <input type = "hidden" name="title" value="<?php echo $result['Title']; ?>">
-                        <input type = "hidden" name="des" value="<?php echo $result['Description']; ?>">
+                        <input type = "hidden" name="num" value="<?php echo $result['ItemNum']; ?>">
                         <input type = "submit" value="X">
                         </form>
                     </td>

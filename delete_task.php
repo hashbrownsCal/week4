@@ -1,12 +1,10 @@
 <?php
-$title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
-$des = filter_input(INPUT_POST, 'des', FILTER_SANITIZE_STRING);
+$num = filter_input(INPUT_POST, 'num', FILTER_VALIDATE_INT);
 
 require_once('database.php');
-$query = 'DELETE FROM todoitems WHERE Title = :title, Description = :des';
+$query = 'DELETE FROM todoitems WHERE ItemNum = :num';
 $statement = $db->prepare($query);
-$statement->bindValue(':title', $title);
-$statement->bindValue(':des', $des);
+$statement->bindValue(':num', $num);
 $success = $statement->execute();
 $statement->closeCursor();
 
