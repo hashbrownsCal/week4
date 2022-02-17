@@ -32,22 +32,29 @@ $statement->closeCursor();
         <table>
             <?php foreach ($results as $result) : ?>
                 <tr>
-                    <?php echo $result['Title']; ?>
-                    <br>
-                    <?php echo $result['Description']; ?>
+                    <td>    
+                        <?php echo $result['Title']; ?>
+                        <br>
+                        <?php echo $result['Description']; ?>
+                    </td>
+                    <td><form action = "delete_task.php" method = "POST">
+                        <input type = "hidden" name="title" value="<?php echo $result['Title']; ?>">
+                        <input type = "hidden" name="des" value="<?php echo $result['Description']; ?>">
+                        <input type = "submit" value="X">
+                    </td>
                 </tr>
-                <?php endforeach; ?>
+            <?php endforeach; ?>
         </table>        
     </section>
 
     <section>
         <h2>Add Item</h2>
-        <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
+        <form action="add_task.php" method="POST">
             <label for = 'newtitle'>Title:</label>
-            <input type = "text" id = 'newtitle' name ='newtitle' required>
+            <input type = "text" id = 'newtitle' name ='newtitle'>
             <label for = 'newdes'>Description:</label>
-            <input type = "text" id = 'newdes' name ='newdes' required>
-            <button>Add Item</button>
+            <input type = "text" id = 'newdes' name ='newdes'>
+            <input type = "submit" value="Add Item">
         </form>
     </section>
 </body>
