@@ -24,22 +24,20 @@ $statement->closeCursor();
     </header>
 
     <section>
-    
     <?php
-        if (!empty($results)) {
+        if (empty($results)) {
             echo "No to do list items exist yet.";
         }
-        else { ?>
+    ?>
         <table>
             <?php foreach ($results as $result) : ?>
                 <tr>
-                    <td><?php echo $result['Title']; ?></td>
-                    <td><?php echo $result['Description']; ?></td>
+                    <?php echo $result['Title']; ?>
+                    <br>
+                    <?php echo $result['Description']; ?>
                 </tr>
+                <?php endforeach; ?>
         </table>        
-    <?php
-        }
-    ?>
     </section>
 
     <section>
