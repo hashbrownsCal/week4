@@ -41,6 +41,7 @@ $statement->closeCursor();
                         <input type = "hidden" name="title" value="<?php echo $result['Title']; ?>">
                         <input type = "hidden" name="des" value="<?php echo $result['Description']; ?>">
                         <input type = "submit" value="X">
+                        </form>
                     </td>
                 </tr>
             <?php endforeach; ?>
